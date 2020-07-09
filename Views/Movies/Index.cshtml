@@ -11,12 +11,13 @@
 </p>
 
 <form asp-controller="Movies" asp-action="Index" method="GET">
-    <select asp-for="MovieGenre" asp-items="Model.Genres">
-            <option value="">All</option>
+        <select class="col-3 custom-select custom-select-lg mb-3" asp-for="MovieGenre" asp-items="Model.Genres">
+            <option value="" selected>All</option>
         </select>
-        
+    
+    <br/><br/>
     <div class="input-group mb-3">
-        <input type="text" asp-for="SearchString" class=".col-form-control" placeholder="Title" aria-label="titulo" aria-describedby="button-search">
+        <input type="text" asp-for="SearchString" class="col-2 form-control" placeholder="Title" aria-label="titulo" aria-describedby="button-search">
         <div class="input-group-append">
             <input class="btn btn-outline-secondary" type="submit" id="button-search" value="Filter" />
         </div>
@@ -38,6 +39,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Movies[0].Price)
             </th>
+            @* <th>
+                @Html.DisplayNameFor(model => model.Movies[0].Rating)
+            </th> *@
             <th></th>
         </tr>
     </thead>
@@ -56,6 +60,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td> *@
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
